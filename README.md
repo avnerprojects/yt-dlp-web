@@ -1,19 +1,15 @@
-# Yoink — Minimalist YouTube Downloader
+# yt-dlp web
 
-A modern, fast web app for pulling **video** (with merged audio), **audio** (MP3), **silent video** (video track only), and **thumbnails** from YouTube links — with selectable resolutions. Powered by [yt-dlp](https://github.com/yt-dlp/yt-dlp) running locally on your machine.
-
----
+A web app for pulling videos (with merged audio), audio (MP3), silent video (video track only), and thumbnails from YouTube links, where you can adjust the quality/resolution.
+Powered by [yt-dlp](https://github.com/yt-dlp/yt-dlp), but runs locally.
 
 ## Features
 
 | Mode | Output |
-| :--- | :--- |
-| **Video** | Best video + audio merged into an MP4 at your chosen resolution (1080p, 720p, etc.) |
+| **Video** | Video + audio merged into an MP4 at a chosen resolution (1080p, 720p, etc.) |
 | **Audio** | Extracted to MP3 @ 192 kbps |
-| **Silent video** | Clean video stream without audio (perfect for loops and motion backgrounds) |
+| **Silent video** | Video stream without audio |
 | **Thumbnail** | Highest-resolution cover artwork (.jpg / .webp) |
-
----
 
 ## Prerequisites & Requirements
 
@@ -41,8 +37,6 @@ Verify `ffmpeg` is accessible:
 ```bash
 ffmpeg -version
 ```
-
----
 
 ## Installation & Setup
 
@@ -79,8 +73,6 @@ ffmpeg -version
    ```
    *You should see a modern version (e.g. `2026.x.x` or later).*
 
----
-
 ## Running the App
 
 ```bash
@@ -94,8 +86,6 @@ Then open your browser and go to:
 > **Why port 5050?**
 > Port 5000 is reserved by macOS AirPlay Receiver (`ControlCenter`). Running on port 5050 prevents port conflict errors. You can also customize the port with the `PORT` environment variable (e.g. `PORT=8080 python app.py`).
 
----
-
 ## How to Use
 
 1. Paste any YouTube video URL into the input field.
@@ -103,8 +93,6 @@ Then open your browser and go to:
 3. Select your desired mode tab (**Video**, **Audio**, **Silent video**, or **Thumbnail**).
 4. Pick your resolution or quality bitrate.
 5. Click **Download**. The file is generated and downloaded straight to your browser.
-
----
 
 ## Troubleshooting
 
