@@ -3,9 +3,11 @@
 A web app for pulling videos (with merged audio), audio (MP3), silent video (video track only), and thumbnails from YouTube links, where you can adjust the quality/resolution.
 Powered by [yt-dlp](https://github.com/yt-dlp/yt-dlp), but runs locally.
 
+
 ## Features
 
 | Mode | Output |
+|:----:|:------:|
 | **Video** | Video + audio merged into an MP4 at a chosen resolution (1080p, 720p, etc.) |
 | **Audio** | Extracted to MP3 @ 192 kbps |
 | **Silent video** | Video stream without audio |
