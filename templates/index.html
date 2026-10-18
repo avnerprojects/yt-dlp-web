@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>yt-dlp web</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+  <main class="shell">
+    <header class="masthead">
+      <div class="mark"><image src="https://avatars.githubusercontent.com/u/79589310?s=46&v=4"></image></div>
+      <h1>yt-dlp web</h1>
+      <p class="tagline">Pull video, audio, silent clips &amp; thumbnails from any YouTube link.</p>
+    </header>
+
+    <section class="search">
+      <input
+        id="url"
+        type="url"
+        inputmode="url"
+        placeholder="Paste a YouTube URL…"
+        autocomplete="off"
+        spellcheck="false"
+      />
+      <button id="fetch" class="btn btn-primary">Fetch</button>
+    </section>
+
+    <p id="status" class="status" hidden></p>
+
+    <section id="result" class="result" hidden>
+      <div class="meta">
+        <img id="thumb" class="thumb" alt="Video thumbnail" />
+        <div class="meta-text">
+          <h2 id="title"></h2>
+          <p id="submeta" class="submeta"></p>
+        </div>
+      </div>
+
+      <div class="tabs" role="tablist">
+        <button class="tab is-active" data-mode="video">Video</button>
+        <button class="tab" data-mode="audio">Audio</button>
+        <button class="tab" data-mode="background">Silent video</button>
+        <button class="tab" data-mode="thumbnail">Thumbnail</button>
+      </div>
+
+      <div class="panel">
+        <!-- Video -->
+        <div class="pane is-active" data-pane="video">
+          <label class="field">
+            <span>Resolution</span>
+            <select id="video-res"></select>
+          </label>
+          <p class="hint">Video and audio (merged into an MP4).</p>
+          <button class="btn btn-primary full" data-download="video">Download video</button>
+        </div>
+
+        <!-- Audio -->
+        <div class="pane" data-pane="audio">
+          <label class="field">
+            <span class="field-label">
+              Quality
+              <button type="button" class="info-btn" id="audio-info-btn" aria-label="About audio formats">i</button>
+            </span>
+            <select id="audio-q"></select>
+          </label>
+          <p class="hint">Extracted to MP3.</p>
+          <button class="btn btn-primary full" data-download="audio">Download audio</button>
+        </div>
+
+        <!-- Background / silent video -->
+        <div class="pane" data-pane="background">
+          <label class="field">
+            <span>Resolution</span>
+            <select id="bg-res"></select>
+          </label>
+          <p class="hint">Video only (no audio).</p>
+          <button class="btn btn-primary full" data-download="background">Download silent video</button>
+        </div>
+
+        <!-- Thumbnail -->
+        <div class="pane" data-pane="thumbnail">
+          <p class="hint">Highest-resolution cover image.</p>
+          <button class="btn btn-primary full" data-download="thumbnail">Download thumbnail</button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">Powered by <a href="https://github.com/yt-dlp/yt-dlp">yt-dlp</a>.</footer>
+  </main>
+
+  <!-- Audio format info popup -->
+  <div class="modal-overlay" id="audio-modal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="audio-modal-title">
+      <button class="modal-close" id="audio-modal-close" aria-label="Close">×</button>
+      <h3 id="audio-modal-title">Audio formats explained</h3>
+      <dl class="modal-list">
+        <dt>kbps (bitrate)</dt>
+        <dd>How much data is used per second of audio. Higher = better quality and bigger files. ~128 kbps is fine for speech &amp; podcasts, 192 kbps is a solid all-rounder, and 256&nbsp;kbps+ is best for music you care about.</dd>
+
+        <dt>m4a (AAC)</dt>
+        <dd>The industry-standard format. Plays everywhere — iPhone, Mac, car stereos, almost every app — with great quality for the file size. Pick this when you want maximum compatibility.</dd>
+
+        <dt>webm (Opus)</dt>
+        <dd>Google's open format. Usually the best quality per kilobyte, so the smallest file at a given quality. Great for modern players (VLC, most desktop/mobile apps), but less universally supported than m4a on older devices.</dd>
+      </dl>
+      <p class="modal-note">These describe the <strong>original</strong> audio track. This app re-encodes your pick to MP3 @ 192&nbsp;kbps for maximum compatibility so choose the <strong>highest kbps</strong> available for the best result.</p>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
