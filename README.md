@@ -79,8 +79,7 @@ ffmpeg -version
 python app.py
 ```
 
-Then open your browser and go to:
-👉 **[http://127.0.0.1:5050](http://127.0.0.1:5050)**
+Then open your browser and go to **[http://127.0.0.1:5050](http://127.0.0.1:5050)**
 
 > [!NOTE]
 > **Why port 5050?**
