@@ -269,5 +269,5 @@ def api_download():
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5050))
     version_str = getattr(getattr(yt_dlp, "version", None), "__version__", "unknown")
-    print(f"Starting Yoink on http://127.0.0.1:{port} (yt-dlp version: {version_str})")
+    print(f"Starting web app on http://127.0.0.1:{port} (yt-dlp version: {version_str})")
     app.run(host="127.0.0.1", port=port, debug=True)
