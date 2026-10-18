@@ -1,0 +1,22 @@
+# Python virtual environment
+.venv/
+venv/
+ENV/
+env/
+
+# Python bytecode & cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# Flask & temporary files
+*.log
+instance/
+.webassets-cache
+tmp/
+scratch/
